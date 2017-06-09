@@ -196,14 +196,20 @@
 <script src="https://cdn.jotfor.ms/js/vendor/math-processor.js?v=3.3.610" type="text/javascript"></script>
 <script type="text/javascript">
    JotForm.setCalculations([{"decimalPlaces":"2","equation":"$ [{33}]","ignoreHiddenFields":"0","insertAsText":"0","newCalculationType":"1","operands":"33","readOnly":"1","replaceText":"","resultField":"31","showBeforeInput":"0","showEmptyDecimals":"0","useCommasForDecimals":"0"}]);
-   JotForm.setConditions([{"action":[{"id":"action_1497021626971","visibility":"Unrequire","field":"22","isError":false},{"id":"action_1497021607413","visibility":"Require","field":"21","isError":false}],"id":"1497021634954","index":"0","link":"Any","priority":"0","terms":[{"id":"term_1497021607413","field":"33","operator":"equals","value":"Four","isError":false}],"type":"require"},{"action":[{"id":"action_1497021583630","visibility":"RequireMultiple","fields":["21","22"],"isError":false}],"id":"1497021597704","index":"1","link":"Any","priority":"1","terms":[{"id":"term_1497021583630","field":"33","operator":"equals","value":"Five","isError":false}],"type":"require"},{"action":[{"id":"action_1497021553063","visibility":"ShowMultiple","isError":false,"fields":["21","22"]}],"id":"1497021567673","index":"2","link":"Any","priority":"2","terms":[{"id":"term_1497021553063","field":"33","operator":"equals","value":"Five","isError":false}],"type":"field"},{"action":[{"id":"action_1497021534374","visibility":"Show","isError":false,"field":"21"},{"id":"action_1497021517442","visibility":"Hide","isError":false,"field":"22"}],"id":"1497021544646","index":"3","link":"Any","priority":"3","terms":[{"id":"term_1497021517442","field":"33","operator":"equals","value":"Four","isError":false}],"type":"field"},{"action":[{"id":"action_1497021494645","isError":false,"visibility":"Hide","field":"21"},{"id":"action_1497021476794","visibility":"Hide","isError":false,"field":"22"}],"id":"1497021509288","index":"4","link":"Any","priority":"4","terms":[{"id":"term_1497021476794","field":"33","operator":"equals","value":"Three","isError":false}],"type":"field"},{"action":[{"id":"action_0_1497021446107","visibility":"Unrequire","field":"22","isError":false},{"id":"action_1_1497021446107","visibility":"Unrequire","field":"21","isError":false}],"id":"1497021429570","index":"5","link":"Any","priority":"5","terms":[{"id":"term_0_1497021446107","field":"33","operator":"equals","value":"Three","isError":false}],"type":"require"}]);
+   JotForm.setConditions([{"action":[{"id":"action_0_1497032402820","visibility":"HideMultiple","isError":false,"fields":["21","37","22","38"]}],"id":"1497021509288","index":"0","link":"Any","priority":"0","terms":[{"id":"term_0_1497032402820","field":"33","operator":"equals","value":"Three","isError":false}],"type":"field"},{"action":[{"id":"action_0_1497032368324","visibility":"UnrequireMultiple","isError":false,"fields":["21","37","22","38"]}],"id":"1497021429570","index":"1","link":"Any","priority":"1","terms":[{"id":"term_0_1497032368324","field":"33","operator":"equals","value":"Three","isError":false}],"type":"require"},{"action":[{"id":"action_0_1497032557756","isError":false,"visibility":"ShowMultiple","fields":["21","37"]},{"id":"action_1_1497032557756","visibility":"HideMultiple","isError":false,"fields":["22","38"]}],"id":"1497021544646","index":"2","link":"Any","priority":"2","terms":[{"id":"term_0_1497032557756","field":"33","operator":"equals","value":"Four","isError":false}],"type":"field"},{"action":[{"id":"action_0_1497032567638","isError":false,"visibility":"RequireMultiple","fields":["21","37"]},{"id":"action_1_1497032567638","visibility":"UnrequireMultiple","isError":false,"fields":["22","38"]}],"id":"1497021634954","index":"3","link":"Any","priority":"3","terms":[{"id":"term_0_1497032567638","field":"33","operator":"equals","value":"Four","isError":false}],"type":"require"},{"action":[{"id":"action_0_1497032578651","visibility":"RequireMultiple","fields":["21","37","22","38"],"isError":false}],"id":"1497021597704","index":"4","link":"Any","priority":"4","terms":[{"id":"term_0_1497032578651","field":"33","operator":"equals","value":"Five","isError":false}],"type":"require"},{"action":[{"id":"action_0_1497032590714","visibility":"ShowMultiple","isError":false,"fields":["21","37","22","38"]}],"id":"1497021567673","index":"5","link":"Any","priority":"5","terms":[{"id":"term_0_1497032590714","field":"33","operator":"equals","value":"Five","isError":false}],"type":"field"}]);
    JotForm.init(function(){
+      JotForm.description('input_34', 'Adult T-shirt Sizes');
+      JotForm.description('input_35', 'Adult T-shirt Sizes');
+      JotForm.description('input_36', 'Adult T-shirt Sizes');
+      JotForm.description('input_37', 'Adult T-shirt Sizes');
+      JotForm.description('input_38', 'Adult T-shirt Sizes');
+      JotForm.description('input_7', 'Event correspondence will be directed to this email account');
       JotForm.alterTexts({"alphabetic":"This field can only contain letters","alphanumeric":"This field can only contain letters and numbers.","ccDonationMinLimitError":"Minimum amount is {minAmount} {currency}","ccInvalidCVC":"CVC number is invalid.","ccInvalidExpireDate":"Expire date is invalid.","ccInvalidNumber":"Credit Card Number is invalid.","ccMissingDetails":"Please fill up the Credit Card details.","ccMissingDonation":"Please enter numeric values for donation amount.","ccMissingProduct":"Please select at least one product.","characterLimitError":"Too many Characters.  The limit is","characterMinLimitError":"Too few characters. The minimum is","confirmClearForm":"Are you sure you want to clear the form?","confirmEmail":"E-mail does not match","currency":"This field can only contain currency values.","cyrillic":"This field can only contain cyrillic characters","dateInvalid":"This date is not valid. The date format is {format}","dateInvalidSeparate":"This date is not valid. Enter a valid {element}.","dateLimited":"This date is unavailable.","disallowDecimals":"Please enter a whole number.","email":"Enter a valid e-mail address","fillMask":"Field value must fill mask.","freeEmailError":"Free email accounts are not allowed","generalError":"There are errors on the form. Please fix them before continuing.","generalPageError":"There are errors on this page. Please fix them before continuing.","gradingScoreError":"Score total should only be less than or equal to","incompleteFields":"There are incomplete required fields. Please complete them.","inputCarretErrorA":"Input should not be less than the minimum value:","inputCarretErrorB":"Input should not be greater than the maximum value:","lessThan":"Your score should be less than or equal to","maxDigitsError":"The maximum digits allowed is","maxSelectionsError":"The maximum number of selections allowed is","minSelectionsError":"The minimum required number of selections is","multipleFileUploads_emptyError":"{file} is empty, please select files again without it.","multipleFileUploads_fileLimitError":"Only {fileLimit} file uploads allowed.","multipleFileUploads_minSizeError":"{file} is too small, minimum file size is {minSizeLimit}.","multipleFileUploads_onLeave":"The files are being uploaded, if you leave now the upload will be cancelled.","multipleFileUploads_sizeError":"{file} is too large, maximum file size is {sizeLimit}.","multipleFileUploads_typeError":"{file} has invalid extension. Only {extensions} are allowed.","numeric":"This field can only contain numeric values","pastDatesDisallowed":"Date must not be in the past.","pleaseWait":"Please wait...","required":"This field is required.","requireEveryCell":"Every cell is required.","requireEveryRow":"Every row is required.","requireOne":"At least one field required.","submissionLimit":"Sorry! Only one entry is allowed.  Multiple submissions are disabled for this form.","uploadExtensions":"You can only upload following files:","uploadFilesize":"File size cannot be bigger than:","uploadFilesizemin":"File size cannot be smaller than:","url":"This field can only contain a valid URL","wordLimitError":"Too many words. The limit is","wordMinLimitError":"Too few words.  The minimum is"});
 	JotForm.clearFieldOnHide="disable";
 	JotForm.submitError="jumpToFirstError";
    });
 
-   JotForm.prepareCalculationsOnTheFly([null,{"name":"huddleOn","qid":"1","text":"Huddle on the Hardwood","type":"control_head"},{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},null,null,{"name":"player1","qid":"5","text":"Player 1","type":"control_fullname"},{"name":"divider","qid":"6","type":"control_divider"},{"name":"primaryTeam","qid":"7","text":"Primary Team Contact","type":"control_email"},null,null,null,null,{"name":"clickTo","qid":"12","text":"<p>The Elk River Huddle on the Hardwood 3V3 Tourney is open to participants from any community. This will be a&nbsp;3 on 3 double-elimination style basketball tournament.</p>\n<p>Team costs are due at time of registration and will be&nbsp;based on the number of registered players on the team ($25/player), which cover the tournament costs and fund the boys and girls youth basketball scholarship program.</p>\n<p>Teams are responsible for providing their own game jerseys (same color shirts for all players are acceptable). &nbsp;Teams&nbsp;are also encouraged to get creative with their names and jerseys to stand out and show their style!</p>\n<p><strong>Deadline to register your team is July 16th</strong>. Late registrations will not guaranteed an event T-shirt.</p>\n<p>Divisions are subject to change based on the numbers of registering teams.</p>","type":"control_text"},{"name":"divider13","qid":"13","type":"control_divider"},{"name":"teamName","qid":"14","text":"Team Name","type":"control_textbox"},{"name":"division","qid":"15","text":"Division","type":"control_radio"},{"name":"subdivision","qid":"16","text":"Subdivision","type":"control_radio"},{"name":"divider17","qid":"17","type":"control_divider"},null,{"name":"player219","qid":"19","text":"Player 2","type":"control_fullname"},{"name":"player320","qid":"20","text":"Player 3","type":"control_fullname"},{"name":"player4","qid":"21","text":"Player 4","type":"control_fullname"},{"name":"player522","qid":"22","text":"Player 5","type":"control_fullname"},null,null,null,null,null,null,{"name":"divider29","qid":"29","type":"control_divider"},null,{"name":"totalAmount","qid":"31","text":"Total Amount Due","type":"control_calculation"},null,{"name":"numberOf33","qid":"33","text":"Number of Teammates","type":"control_radio"}]);</script>
+   JotForm.prepareCalculationsOnTheFly([null,{"name":"huddleOn","qid":"1","text":"Huddle on the Hardwood","type":"control_head"},{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},null,null,{"name":"player1","qid":"5","text":"Player 1","type":"control_fullname"},{"name":"divider","qid":"6","type":"control_divider"},{"name":"primaryTeam","qid":"7","text":"Primary Team Contact","type":"control_email"},null,null,null,null,{"name":"clickTo","qid":"12","text":"<p>The Elk River Huddle on the Hardwood 3V3 Tourney is open to participants from any community. This will be a&nbsp;3 on 3 double-elimination style basketball tournament.</p>\n<p>Team costs are due at time of registration and will be&nbsp;based on the number of registered players on the team ($25/player), which cover the tournament costs and fund the boys and girls youth basketball scholarship program.</p>\n<p>Teams are responsible for providing their own game jerseys (same color shirts for all players are acceptable). &nbsp;Teams&nbsp;are also encouraged to get creative with their names and jerseys to stand out and show their style!</p>\n<p><strong>Deadline to register your team is July 16th</strong>. Late registrations will not guaranteed an event T-shirt.</p>\n<p>Divisions are subject to change based on the numbers of registering teams.</p>","type":"control_text"},{"name":"divider13","qid":"13","type":"control_divider"},{"name":"teamName","qid":"14","text":"Team Name","type":"control_textbox"},{"name":"division","qid":"15","text":"Division","type":"control_radio"},{"name":"subdivision","qid":"16","text":"Subdivision","type":"control_radio"},{"name":"divider17","qid":"17","type":"control_divider"},null,{"name":"player219","qid":"19","text":"Player 2","type":"control_fullname"},{"name":"player320","qid":"20","text":"Player 3","type":"control_fullname"},{"name":"player4","qid":"21","text":"Player 4","type":"control_fullname"},{"name":"player522","qid":"22","text":"Player 5","type":"control_fullname"},null,null,null,null,null,null,{"name":"divider29","qid":"29","type":"control_divider"},null,{"name":"totalAmount","qid":"31","text":"Total Amount Due","type":"control_calculation"},null,{"name":"numberOf33","qid":"33","text":"Number of Teammates","type":"control_radio"},{"name":"input34","qid":"34","text":" ","type":"control_dropdown"},{"name":"input35","qid":"35","text":" ","type":"control_dropdown"},{"name":"input36","qid":"36","text":" ","type":"control_dropdown"},{"name":"input37","qid":"37","text":" ","type":"control_dropdown"},{"name":"input38","qid":"38","text":" ","type":"control_dropdown"}]);</script>
 </head>
 <body>
 <form class="jotform-form" action="https://submit.jotform.us/submit/71544497061156/" method="post" name="form_71544497061156" id="71544497061156" accept-charset="utf-8">
@@ -292,7 +298,7 @@
             <span class="form-radio-item" style="clear:left;">
               <span class="dragger-item">
               </span>
-              <input type="radio" class="form-radio validate[required]" id="input_15_0" name="q15_division" value="Girls Division" required="" />
+              <input type="radio" class="form-radio validate[required]" id="input_15_0" name="q15_division" checked="" value="Girls Division" required="" />
               <label id="label_input_15_0" for="input_15_0"> Girls Division </label>
             </span>
             <span class="form-radio-item" style="clear:left;">
@@ -328,7 +334,7 @@
             <span class="form-radio-item" style="clear:left;">
               <span class="dragger-item">
               </span>
-              <input type="radio" class="form-radio validate[required]" id="input_16_0" name="q16_subdivision" value="3rd and 4th Grade" required="" />
+              <input type="radio" class="form-radio validate[required]" id="input_16_0" name="q16_subdivision" checked="" value="3rd and 4th Grade" required="" />
               <label id="label_input_16_0" for="input_16_0"> 3rd and 4th Grade </label>
             </span>
             <span class="form-radio-item" style="clear:left;">
@@ -376,8 +382,8 @@
           </div>
         </div>
       </li>
-      <li class="form-line jf-required" data-type="control_fullname" id="id_5">
-        <label class="form-label form-label-top form-label-auto" id="label_5" for="first_5">
+      <li class="form-line form-line-column form-col-1 jf-required" data-type="control_fullname" id="id_5">
+        <label class="form-label form-label-top" id="label_5" for="first_5">
           Player 1
           <span class="form-required">
             *
@@ -396,7 +402,27 @@
           </div>
         </div>
       </li>
-      <li class="form-line jf-required" data-type="control_fullname" id="id_19">
+      <li class="form-line form-line-column form-col-2 jf-required" data-type="control_dropdown" id="id_34">
+        <label class="form-label form-label-top" id="label_34" for="input_34">
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_34" class="form-input-wide jf-required">
+          <span class="form-sub-label-container" style="vertical-align:top;">
+            <select class="form-dropdown validate[required]" id="input_34" name="q34_input34" style="width:150px;" data-component="dropdown" required="">
+              <option data-calcvalue="NONE" value="">  </option>
+              <option selected="" data-calcvalue="S" value="No Thanks"> No Thanks </option>
+              <option data-calcvalue="M" value="Small"> Small </option>
+              <option data-calcvalue="L" value="Medium"> Medium </option>
+              <option data-calcvalue="XL" value="Large"> Large </option>
+              <option value="Extra Large"> Extra Large </option>
+            </select>
+            <label class="form-sub-label" for="input_34" style="min-height:13px;"> T-Shirt Size </label>
+          </span>
+        </div>
+      </li>
+      <li class="form-line form-line-column form-col-1 form-line-column-clear jf-required" data-type="control_fullname" id="id_19">
         <label class="form-label form-label-top form-label-auto" id="label_19" for="first_19">
           Player 2
           <span class="form-required">
@@ -416,8 +442,28 @@
           </div>
         </div>
       </li>
-      <li class="form-line jf-required" data-type="control_fullname" id="id_20">
-        <label class="form-label form-label-top form-label-auto" id="label_20" for="first_20">
+      <li class="form-line form-line-column form-col-2 jf-required" data-type="control_dropdown" id="id_35">
+        <label class="form-label form-label-top" id="label_35" for="input_35">
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_35" class="form-input-wide jf-required">
+          <span class="form-sub-label-container" style="vertical-align:top;">
+            <select class="form-dropdown validate[required]" id="input_35" name="q35_input35" style="width:150px;" data-component="dropdown" required="">
+              <option data-calcvalue="NONE" value="">  </option>
+              <option selected="" data-calcvalue="S" value="No Thanks"> No Thanks </option>
+              <option data-calcvalue="M" value="Small"> Small </option>
+              <option data-calcvalue="L" value="Medium"> Medium </option>
+              <option data-calcvalue="XL" value="Large"> Large </option>
+              <option value="Extra Large"> Extra Large </option>
+            </select>
+            <label class="form-sub-label" for="input_35" style="min-height:13px;"> T-Shirt Size </label>
+          </span>
+        </div>
+      </li>
+      <li class="form-line form-line-column form-col-1 form-line-column-clear jf-required" data-type="control_fullname" id="id_20">
+        <label class="form-label form-label-top" id="label_20" for="first_20">
           Player 3
           <span class="form-required">
             *
@@ -436,8 +482,28 @@
           </div>
         </div>
       </li>
-      <li class="form-line form-field-hidden" style="display:none;" data-type="control_fullname" id="id_21">
-        <label class="form-label form-label-top form-label-auto" id="label_21" for="first_21"> Player 4 </label>
+      <li class="form-line form-line-column form-col-2 jf-required" data-type="control_dropdown" id="id_36">
+        <label class="form-label form-label-top" id="label_36" for="input_36">
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_36" class="form-input-wide jf-required">
+          <span class="form-sub-label-container" style="vertical-align:top;">
+            <select class="form-dropdown validate[required]" id="input_36" name="q36_input36" style="width:150px;" data-component="dropdown" required="">
+              <option data-calcvalue="NONE" value="">  </option>
+              <option selected="" data-calcvalue="S" value="No Thanks"> No Thanks </option>
+              <option data-calcvalue="M" value="Small"> Small </option>
+              <option data-calcvalue="L" value="Medium"> Medium </option>
+              <option data-calcvalue="XL" value="Large"> Large </option>
+              <option value="Extra Large"> Extra Large </option>
+            </select>
+            <label class="form-sub-label" for="input_36" style="min-height:13px;"> T-Shirt Size </label>
+          </span>
+        </div>
+      </li>
+      <li class="form-line form-line-column form-col-1 form-line-column-clear form-field-hidden" style="display:none;" data-type="control_fullname" id="id_21">
+        <label class="form-label form-label-top" id="label_21" for="first_21"> Player 4 </label>
         <div id="cid_21" class="form-input-wide jf-required">
           <div data-wrapper-react="true">
             <span class="form-sub-label-container" style="vertical-align:top;">
@@ -451,7 +517,27 @@
           </div>
         </div>
       </li>
-      <li class="form-line form-field-hidden" style="display:none;" data-type="control_fullname" id="id_22">
+      <li class="form-line form-line-column form-col-2 jf-required form-field-hidden" style="display:none;" data-type="control_dropdown" id="id_37">
+        <label class="form-label form-label-top" id="label_37" for="input_37">
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_37" class="form-input-wide jf-required">
+          <span class="form-sub-label-container" style="vertical-align:top;">
+            <select class="form-dropdown validate[required]" id="input_37" name="q37_input37" style="width:150px;" data-component="dropdown" required="">
+              <option data-calcvalue="NONE" value="">  </option>
+              <option selected="" data-calcvalue="S" value="No Thanks"> No Thanks </option>
+              <option data-calcvalue="M" value="Small"> Small </option>
+              <option data-calcvalue="L" value="Medium"> Medium </option>
+              <option data-calcvalue="XL" value="Large"> Large </option>
+              <option value="Extra Large"> Extra Large </option>
+            </select>
+            <label class="form-sub-label" for="input_37" style="min-height:13px;"> T-Shirt Size </label>
+          </span>
+        </div>
+      </li>
+      <li class="form-line form-line-column form-col-1 form-line-column-clear form-field-hidden" style="display:none;" data-type="control_fullname" id="id_22">
         <label class="form-label form-label-top form-label-auto" id="label_22" for="first_22"> Player 5 </label>
         <div id="cid_22" class="form-input-wide jf-required">
           <div data-wrapper-react="true">
@@ -464,6 +550,26 @@
               <label class="form-sub-label" for="last_22" id="sublabel_last" style="min-height:13px;"> Last Name </label>
             </span>
           </div>
+        </div>
+      </li>
+      <li class="form-line form-line-column form-col-2 jf-required form-field-hidden" style="display:none;" data-type="control_dropdown" id="id_38">
+        <label class="form-label form-label-top" id="label_38" for="input_38">
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_38" class="form-input-wide jf-required">
+          <span class="form-sub-label-container" style="vertical-align:top;">
+            <select class="form-dropdown validate[required]" id="input_38" name="q38_input38" style="width:150px;" data-component="dropdown" required="">
+              <option data-calcvalue="NONE" value="">  </option>
+              <option selected="" data-calcvalue="S" value="No Thanks"> No Thanks </option>
+              <option data-calcvalue="M" value="Small"> Small </option>
+              <option data-calcvalue="L" value="Medium"> Medium </option>
+              <option data-calcvalue="XL" value="Large"> Large </option>
+              <option value="Extra Large"> Extra Large </option>
+            </select>
+            <label class="form-sub-label" for="input_38" style="min-height:13px;"> T-Shirt Size </label>
+          </span>
         </div>
       </li>
       <li class="form-line" data-type="control_divider" id="id_17">
@@ -494,7 +600,10 @@
           </span>
         </label>
         <div id="cid_31" class="form-input-wide jf-required">
-          <input data-component="calculation" type="text" data-defaultvalue="75" class="form-textbox validate[required]" data-type="input-textbox" id="input_31" name="q31_totalAmount" value="75" size="20" />
+          <span class="form-sub-label-container" style="vertical-align:top;">
+            <input data-component="calculation" type="text" data-defaultvalue="75" class="form-textbox validate[required]" data-type="input-textbox" id="input_31" name="q31_totalAmount" value="75" size="20" />
+            <label class="form-sub-label" for="input_31" style="min-height:13px;"> $25 / player </label>
+          </span>
         </div>
       </li>
       <li class="form-line" data-type="control_divider" id="id_29">
@@ -511,6 +620,8 @@
             </button>
           </div>
         </div>
+      </li>
+      <li style="clear:both">
       </li>
       <li style="display:none">
         Should be Empty:
