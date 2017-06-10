@@ -8,9 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <meta name="HandheldFriendly" content="true" />
 <title>Huddle on the Hardwood</title>
-<link href="https://cdn.jotfor.ms/static/formCss.css?3.3.610" rel="stylesheet" type="text/css" />
-<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/nova.css?3.3.610" />
-<link type="text/css" media="print" rel="stylesheet" href="https://cdn.jotfor.ms/css/printForm.css?3.3.610" />
+<link href="https://cdn.jotfor.ms/static/formCss.css?3.3.612" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/nova.css?3.3.612" />
+<link type="text/css" media="print" rel="stylesheet" href="https://cdn.jotfor.ms/css/printForm.css?3.3.612" />
 <link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/themes/CSS/566a91c2977cdfcd478b4567.css?"/>
 <style type="text/css">
     .form-label-left{
@@ -69,14 +69,7 @@
       font-family: Lucida Grande, sans-serif;
     }
   
-    .form-label.form-label-auto {
-      
-    display: block;
-    float: none;
-    text-align: left;
-    width: 100%;
-  
-    }
+    
   
     .form-line {
       margin-top: 12px;
@@ -191,9 +184,11 @@
     /* Injected CSS Code */
 </style>
 
+<script src="https://js.stripe.com/v1/" type="text/javascript"></script>
 <script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
-<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.610" type="text/javascript"></script>
-<script src="https://cdn.jotfor.ms/js/vendor/math-processor.js?v=3.3.610" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.612" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/js/stripe.js?v=3.3.612" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/js/vendor/math-processor.js?v=3.3.612" type="text/javascript"></script>
 <script type="text/javascript">
    JotForm.setCalculations([{"decimalPlaces":"2","equation":"$ [{33}]","ignoreHiddenFields":"0","insertAsText":"0","newCalculationType":"1","operands":"33","readOnly":"1","replaceText":"","resultField":"31","showBeforeInput":"0","showEmptyDecimals":"0","useCommasForDecimals":"0"}]);
    JotForm.setConditions([{"action":[{"id":"action_0_1497032402820","visibility":"HideMultiple","isError":false,"fields":["21","37","22","38"]}],"id":"1497021509288","index":"0","link":"Any","priority":"0","terms":[{"id":"term_0_1497032402820","field":"33","operator":"equals","value":"Three","isError":false}],"type":"field"},{"action":[{"id":"action_0_1497032368324","visibility":"UnrequireMultiple","isError":false,"fields":["21","37","22","38"]}],"id":"1497021429570","index":"1","link":"Any","priority":"1","terms":[{"id":"term_0_1497032368324","field":"33","operator":"equals","value":"Three","isError":false}],"type":"require"},{"action":[{"id":"action_0_1497032557756","isError":false,"visibility":"ShowMultiple","fields":["21","37"]},{"id":"action_1_1497032557756","visibility":"HideMultiple","isError":false,"fields":["22","38"]}],"id":"1497021544646","index":"2","link":"Any","priority":"2","terms":[{"id":"term_0_1497032557756","field":"33","operator":"equals","value":"Four","isError":false}],"type":"field"},{"action":[{"id":"action_0_1497032567638","isError":false,"visibility":"RequireMultiple","fields":["21","37"]},{"id":"action_1_1497032567638","visibility":"UnrequireMultiple","isError":false,"fields":["22","38"]}],"id":"1497021634954","index":"3","link":"Any","priority":"3","terms":[{"id":"term_0_1497032567638","field":"33","operator":"equals","value":"Four","isError":false}],"type":"require"},{"action":[{"id":"action_0_1497032578651","visibility":"RequireMultiple","fields":["21","37","22","38"],"isError":false}],"id":"1497021597704","index":"4","link":"Any","priority":"4","terms":[{"id":"term_0_1497032578651","field":"33","operator":"equals","value":"Five","isError":false}],"type":"require"},{"action":[{"id":"action_0_1497032590714","visibility":"ShowMultiple","isError":false,"fields":["21","37","22","38"]}],"id":"1497021567673","index":"5","link":"Any","priority":"5","terms":[{"id":"term_0_1497032590714","field":"33","operator":"equals","value":"Five","isError":false}],"type":"field"}]);
@@ -204,12 +199,13 @@
       JotForm.description('input_37', 'Adult T-shirt Sizes');
       JotForm.description('input_38', 'Adult T-shirt Sizes');
       JotForm.description('input_7', 'Event correspondence will be directed to this email account');
+      JotForm.setStripeSettings('pk_live_sBfDSAlUmlTJKeaAW55Fu4jf', 'none');
       JotForm.alterTexts({"alphabetic":"This field can only contain letters","alphanumeric":"This field can only contain letters and numbers.","ccDonationMinLimitError":"Minimum amount is {minAmount} {currency}","ccInvalidCVC":"CVC number is invalid.","ccInvalidExpireDate":"Expire date is invalid.","ccInvalidNumber":"Credit Card Number is invalid.","ccMissingDetails":"Please fill up the Credit Card details.","ccMissingDonation":"Please enter numeric values for donation amount.","ccMissingProduct":"Please select at least one product.","characterLimitError":"Too many Characters.  The limit is","characterMinLimitError":"Too few characters. The minimum is","confirmClearForm":"Are you sure you want to clear the form?","confirmEmail":"E-mail does not match","currency":"This field can only contain currency values.","cyrillic":"This field can only contain cyrillic characters","dateInvalid":"This date is not valid. The date format is {format}","dateInvalidSeparate":"This date is not valid. Enter a valid {element}.","dateLimited":"This date is unavailable.","disallowDecimals":"Please enter a whole number.","email":"Enter a valid e-mail address","fillMask":"Field value must fill mask.","freeEmailError":"Free email accounts are not allowed","generalError":"There are errors on the form. Please fix them before continuing.","generalPageError":"There are errors on this page. Please fix them before continuing.","gradingScoreError":"Score total should only be less than or equal to","incompleteFields":"There are incomplete required fields. Please complete them.","inputCarretErrorA":"Input should not be less than the minimum value:","inputCarretErrorB":"Input should not be greater than the maximum value:","lessThan":"Your score should be less than or equal to","maxDigitsError":"The maximum digits allowed is","maxSelectionsError":"The maximum number of selections allowed is","minSelectionsError":"The minimum required number of selections is","multipleFileUploads_emptyError":"{file} is empty, please select files again without it.","multipleFileUploads_fileLimitError":"Only {fileLimit} file uploads allowed.","multipleFileUploads_minSizeError":"{file} is too small, minimum file size is {minSizeLimit}.","multipleFileUploads_onLeave":"The files are being uploaded, if you leave now the upload will be cancelled.","multipleFileUploads_sizeError":"{file} is too large, maximum file size is {sizeLimit}.","multipleFileUploads_typeError":"{file} has invalid extension. Only {extensions} are allowed.","numeric":"This field can only contain numeric values","pastDatesDisallowed":"Date must not be in the past.","pleaseWait":"Please wait...","required":"This field is required.","requireEveryCell":"Every cell is required.","requireEveryRow":"Every row is required.","requireOne":"At least one field required.","submissionLimit":"Sorry! Only one entry is allowed.  Multiple submissions are disabled for this form.","uploadExtensions":"You can only upload following files:","uploadFilesize":"File size cannot be bigger than:","uploadFilesizemin":"File size cannot be smaller than:","url":"This field can only contain a valid URL","wordLimitError":"Too many words. The limit is","wordMinLimitError":"Too few words.  The minimum is"});
 	JotForm.clearFieldOnHide="disable";
 	JotForm.submitError="jumpToFirstError";
    });
 
-   JotForm.prepareCalculationsOnTheFly([null,{"name":"huddleOn","qid":"1","text":"Huddle on the Hardwood","type":"control_head"},{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},null,null,{"name":"player1","qid":"5","text":"Player 1","type":"control_fullname"},{"name":"divider","qid":"6","type":"control_divider"},{"name":"primaryTeam","qid":"7","text":"Primary Team Contact","type":"control_email"},null,null,null,null,{"name":"clickTo","qid":"12","text":"<p>The Elk River Huddle on the Hardwood 3V3 Tourney is open to participants from any community. This will be a&nbsp;3 on 3 double-elimination style basketball tournament.</p>\n<p>Team costs are due at time of registration and will be&nbsp;based on the number of registered players on the team ($25/player), which cover the tournament costs and fund the boys and girls youth basketball scholarship program.</p>\n<p>Teams are responsible for providing their own game jerseys (same color shirts for all players are acceptable). &nbsp;Teams&nbsp;are also encouraged to get creative with their names and jerseys to stand out and show their style!</p>\n<p><strong>Deadline to register your team is July 16th</strong>. Late registrations will not guarantee an event T-shirt.</p>\n<p>Divisions are subject to change based on the numbers of registering teams.</p>","type":"control_text"},{"name":"divider13","qid":"13","type":"control_divider"},{"name":"teamName","qid":"14","text":"Team Name","type":"control_textbox"},{"name":"division","qid":"15","text":"Division","type":"control_radio"},{"name":"subdivision","qid":"16","text":"Subdivision","type":"control_radio"},{"name":"divider17","qid":"17","type":"control_divider"},null,{"name":"player219","qid":"19","text":"Player 2","type":"control_fullname"},{"name":"player320","qid":"20","text":"Player 3","type":"control_fullname"},{"name":"player4","qid":"21","text":"Player 4","type":"control_fullname"},{"name":"player522","qid":"22","text":"Player 5","type":"control_fullname"},null,null,null,null,null,null,{"name":"divider29","qid":"29","type":"control_divider"},null,{"name":"totalAmount","qid":"31","text":"Total Amount Due","type":"control_calculation"},null,{"name":"numberOf33","qid":"33","text":"Number of Teammates","type":"control_radio"},{"name":"input34","qid":"34","text":" ","type":"control_dropdown"},{"name":"input35","qid":"35","text":" ","type":"control_dropdown"},{"name":"input36","qid":"36","text":" ","type":"control_dropdown"},{"name":"input37","qid":"37","text":" ","type":"control_dropdown"},{"name":"input38","qid":"38","text":" ","type":"control_dropdown"}]);</script>
+   JotForm.prepareCalculationsOnTheFly([null,{"name":"huddleOn","qid":"1","text":"Huddle on the Hardwood","type":"control_head"},{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},null,null,{"name":"player1","qid":"5","text":"Player 1","type":"control_fullname"},{"name":"divider","qid":"6","type":"control_divider"},{"name":"primaryTeam","qid":"7","text":"Primary Team Contact","type":"control_email"},null,null,null,null,{"name":"clickTo","qid":"12","text":"<p>The Elk River Huddle on the Hardwood 3V3 Tourney is open to participants from any community. This will be a&nbsp;3 on 3 double-elimination style basketball tournament.</p>\n<p>Team costs are due at time of registration and will be&nbsp;based on the number of registered players on the team ($25/player), which cover the tournament costs and fund the boys and girls youth basketball scholarship program.</p>\n<p>Teams are responsible for providing their own game jerseys (same color shirts for all players are acceptable). &nbsp;Teams&nbsp;are also encouraged to get creative with their names and jerseys to stand out and show their style!</p>\n<p><strong>Deadline to register your team is July 16th</strong>. Late registrations will not guaranteed an event T-shirt.</p>\n<p>Divisions are subject to change based on the numbers of registering teams.</p>","type":"control_text"},{"name":"divider13","qid":"13","type":"control_divider"},{"name":"teamName","qid":"14","text":"Team Name","type":"control_textbox"},{"name":"division","qid":"15","text":"Division","type":"control_radio"},{"name":"subdivision","qid":"16","text":"Subdivision","type":"control_radio"},{"name":"divider17","qid":"17","type":"control_divider"},null,{"name":"player219","qid":"19","text":"Player 2","type":"control_fullname"},{"name":"player320","qid":"20","text":"Player 3","type":"control_fullname"},{"name":"player4","qid":"21","text":"Player 4","type":"control_fullname"},{"name":"player522","qid":"22","text":"Player 5","type":"control_fullname"},null,null,null,null,null,null,{"name":"divider29","qid":"29","type":"control_divider"},null,{"name":"totalAmount","qid":"31","text":"Total Amount Due","type":"control_calculation"},null,{"name":"numberOf33","qid":"33","text":"Number of Teammates","type":"control_radio"},{"name":"input34","qid":"34","text":" ","type":"control_dropdown"},{"name":"input35","qid":"35","text":" ","type":"control_dropdown"},{"name":"input36","qid":"36","text":" ","type":"control_dropdown"},{"name":"input37","qid":"37","text":" ","type":"control_dropdown"},{"name":"input38","qid":"38","text":" ","type":"control_dropdown"},{"name":"myProducts","qid":"39","text":"Payment Details","type":"control_stripe"}]);</script>
 </head>
 <body>
 <form class="jotform-form" action="https://submit.jotform.us/submit/71544497061156/" method="post" name="form_71544497061156" id="71544497061156" accept-charset="utf-8">
@@ -241,7 +237,7 @@
       </li>
       <li class="form-line" data-type="control_divider" id="id_13">
         <div id="cid_13" class="form-input-wide">
-          <div data-component="divider" style="border-bottom:1px solid #e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px;">
+          <div data-component="divider" style="border-bottom:1px solid #000000;height:1px;margin-left:0px;margin-right:0px;margin-top:0px;margin-bottom:2px;">
           </div>
         </div>
       </li>
@@ -423,7 +419,7 @@
         </div>
       </li>
       <li class="form-line form-line-column form-col-1 form-line-column-clear jf-required" data-type="control_fullname" id="id_19">
-        <label class="form-label form-label-top form-label-auto" id="label_19" for="first_19">
+        <label class="form-label form-label-top" id="label_19" for="first_19">
           Player 2
           <span class="form-required">
             *
@@ -538,7 +534,7 @@
         </div>
       </li>
       <li class="form-line form-line-column form-col-1 form-line-column-clear form-field-hidden" style="display:none;" data-type="control_fullname" id="id_22">
-        <label class="form-label form-label-top form-label-auto" id="label_22" for="first_22"> Player 5 </label>
+        <label class="form-label form-label-top" id="label_22" for="first_22"> Player 5 </label>
         <div id="cid_22" class="form-input-wide jf-required">
           <div data-wrapper-react="true">
             <span class="form-sub-label-container" style="vertical-align:top;">
@@ -592,29 +588,133 @@
           </span>
         </div>
       </li>
-      <li class="form-line jf-required" data-type="control_calculation" id="id_31">
-        <label class="form-label form-label-top form-label-auto" id="label_31" for="input_31">
-          Total Amount Due
-          <span class="form-required">
-            *
-          </span>
-        </label>
+      <li class="form-line" data-type="control_calculation" id="id_31">
+        <label class="form-label form-label-top" id="label_31" for="input_31"> Total Amount Due </label>
         <div id="cid_31" class="form-input-wide jf-required">
           <span class="form-sub-label-container" style="vertical-align:top;">
-            <input data-component="calculation" type="text" data-defaultvalue="75" class="form-textbox validate[required]" data-type="input-textbox" id="input_31" name="q31_totalAmount" value="75" size="20" />
+            <input data-component="calculation" type="text" data-defaultvalue="75" class="form-textbox" data-type="input-textbox" id="input_31" name="q31_totalAmount" value="75" size="20" />
             <label class="form-sub-label" for="input_31" style="min-height:13px;"> $25 / player </label>
           </span>
         </div>
       </li>
       <li class="form-line" data-type="control_divider" id="id_29">
         <div id="cid_29" class="form-input-wide">
-          <div data-component="divider" style="border-bottom:1px solid #e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px;">
+          <div data-component="divider" style="border-bottom:2px solid #000000;height:2px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px;">
+          </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_stripe" id="id_39">
+        <label class="form-label form-label-top" id="label_39" for="input_39">
+          Payment Details
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_39" class="form-input-wide jf-required">
+          <div data-wrapper-react="true">
+            <div data-wrapper-react="true">
+              <input type="hidden" name="simple_fpc" data-payment_type="stripe" data-component="payment1" value="39" />
+              <input type="hidden" name="payment_total_checksum" id="payment_total_checksum" data-component="payment2" />
+              <span class="form-sub-label-container" style="vertical-align:top;">
+                <input type="text" class="form-textbox validate[required, Numeric]" id="input_39_donation" name="q39_myProducts[price]" value="" readonly="" data-custom-amount-field="31" data-component="paymentDonation" />
+                USD
+                <label class="form-sub-label" for="input_39_donation" style="min-height:13px;">  </label>
+              </span>
+              <hr/>
+            </div>
+            <table class="form-address-table payment-form-table" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <th colspan="2" style="text-align:left;margin-top:20px;display:table;" id="ccTitle39">
+                    Credit Card Details
+                  </th>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <span class="form-sub-label-container" style="vertical-align:top;">
+                      <label class="form-sub-label" for="input_39_cc_firstName" id="sublabel_cc_firstName" style="min-height:13px;margin:0 0 3px 0;"> First Name </label>
+                      <input type="text" id="input_39_cc_firstName" name="q39_myProducts[cc_firstName]" class="form-textbox validate[required] cc_firstName" size="20" value="" data-component="cc_firstName" />
+                    </span>
+                  </td>
+                  <td width="50%">
+                    <span class="form-sub-label-container" style="vertical-align:top;">
+                      <label class="form-sub-label" for="input_39_cc_lastName" id="sublabel_cc_lastName" style="min-height:13px;margin:0 0 3px 0;"> Last Name </label>
+                      <input type="text" id="input_39_cc_lastName" name="q39_myProducts[cc_lastName]" class="form-textbox validate[required] cc_lastName" size="20" value="" data-component="cc_lastName" />
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <span class="form-sub-label-container" style="vertical-align:top;">
+                      <label class="form-sub-label" for="input_39_cc_number" id="sublabel_cc_number" style="min-height:13px;margin:0 0 3px 0;"> Credit Card Number </label>
+                      <input type="number" id="input_39_cc_number" name="q39_myProducts[cc_number]" class="form-textbox validate[required] cc_number" autocomplete="off" size="20" value="" data-component="cc_number" />
+                    </span>
+                  </td>
+                  <td width="50%">
+                    <span class="form-sub-label-container" style="vertical-align:top;">
+                      <label class="form-sub-label" for="input_39_cc_ccv" id="sublabel_cc_ccv" style="min-height:13px;margin:0 0 3px 0;"> Security Code </label>
+                      <input type="number" id="input_39_cc_ccv" name="q39_myProducts[cc_ccv]" class="form-textbox validate[required] cc_ccv" autocomplete="off" style="width:52px;" value="" data-component="cc_ccv" />
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%">
+                    <span class="form-sub-label-container" style="vertical-align:top;">
+                      <label class="form-sub-label" for="input_39_cc_exp_month" id="sublabel_cc_exp_month" style="min-height:13px;margin:0 0 3px 0;"> Expiration Month </label>
+                      <select class="form-dropdown validate[required] cc_exp_month" name="q39_myProducts[cc_exp_month]" id="input_39_cc_exp_month" data-component="cc_exp_month">
+                        <option>  </option>
+                        <option value="1"> January </option>
+                        <option value="2"> February </option>
+                        <option value="3"> March </option>
+                        <option value="4"> April </option>
+                        <option value="5"> May </option>
+                        <option value="6"> June </option>
+                        <option value="7"> July </option>
+                        <option value="8"> August </option>
+                        <option value="9"> September </option>
+                        <option value="10"> October </option>
+                        <option value="11"> November </option>
+                        <option value="12"> December </option>
+                      </select>
+                    </span>
+                  </td>
+                  <td width="50%">
+                    <span class="form-sub-label-container" style="vertical-align:top;">
+                      <label class="form-sub-label" for="input_39_cc_exp_year" id="sublabel_cc_exp_year" style="min-height:13px;margin:0 0 3px 0;"> Expiration Year </label>
+                      <select class="form-dropdown validate[required] cc_exp_year" name="q39_myProducts[cc_exp_year]" id="input_39_cc_exp_year" data-component="cc_exp_year">
+                        <option>  </option>
+                        <option value="2017"> 2017 </option>
+                        <option value="2018"> 2018 </option>
+                        <option value="2019"> 2019 </option>
+                        <option value="2020"> 2020 </option>
+                        <option value="2021"> 2021 </option>
+                        <option value="2022"> 2022 </option>
+                        <option value="2023"> 2023 </option>
+                        <option value="2024"> 2024 </option>
+                        <option value="2025"> 2025 </option>
+                        <option value="2026"> 2026 </option>
+                        <option value="2027"> 2027 </option>
+                        <option value="2028"> 2028 </option>
+                        <option value="2029"> 2029 </option>
+                        <option value="2030"> 2030 </option>
+                        <option value="2031"> 2031 </option>
+                        <option value="2032"> 2032 </option>
+                        <option value="2033"> 2033 </option>
+                        <option value="2034"> 2034 </option>
+                        <option value="2035"> 2035 </option>
+                        <option value="2036"> 2036 </option>
+                      </select>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </li>
       <li class="form-line" data-type="control_button" id="id_2">
         <div id="cid_2" class="form-input-wide">
-          <div style="margin-left:156px;" class="form-buttons-wrapper">
+          <div style="text-align:left;" class="form-buttons-wrapper">
             <button id="input_2" type="submit" class="form-submit-button" data-component="button">
               Submit
             </button>
@@ -636,6 +736,17 @@
   <script type="text/javascript">
   document.getElementById("si" + "mple" + "_spc").value = "71544497061156-71544497061156";
   </script>
+  <div class="formFooter-heightMask">
+  </div>
+  <div class="formFooter">
+    <a href="https://www.jotform.com/signup?utm_source=formfooter&utm_medium=banner&utm_term=71544497061156&utm_content=jotform_logo&utm_campaign=powered_by_jotform_signup" target="_blank" class="formFooter-logoLink"><img class="formFooter-logo" src="https://cdn.jotfor.ms/assets/img/logo/logo-new@1x.png" alt="" style="height: 44px;"></a>
+    <div class="formFooter-rightSide">
+      <span class="formFooter-text">
+        Now create your own JotForm - It's free!
+      </span>
+      <a class="formFooter-button" href="https://www.jotform.com/signup?utm_source=formfooter&utm_medium=banner&utm_term=71544497061156&utm_content=jotform_button&utm_campaign=powered_by_jotform_signup" target="_blank">Create your own JotForm</a>
+    </div>
+  </div>
 </form></body>
 </html>
 <script type="text/javascript">JotForm.ownerView=true;</script>
