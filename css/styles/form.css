@@ -189,7 +189,7 @@
 
 .form-product-custom_price {
     text-align: right;
-    width: 30px;
+    width: 30px; 
     border: 1px solid gray;
     margin: 0 2px;
     padding: 2px 4px
@@ -209,6 +209,7 @@
     /* margin: -12px 0 12px 8px; */
     margin: 5px 0 12px 8px;
     height: 12px;
+    float: left; 
 }
 
 .form-product-image, .form-product-image-with-options{
@@ -1705,7 +1706,7 @@ input[type=number]::-webkit-inner-spin-button {
     color: white;
     line-height: 16px;
     text-decoration: none;
-    padding: 6px 22px 6px 12px;
+    padding: 6px 0;
     border: none;
     box-shadow: 0px 0px 4px black;
 }
@@ -1727,6 +1728,13 @@ input[type=number]::-webkit-inner-spin-button {
 
 .embed-dropdown label:nth-of-type(1) {
     cursor: pointer;
+}
+
+.embed-dropdown .btn-dropdown {
+    padding: 6px 20px 6px 10px;
+}
+.embed-dropdown-open {
+    display: none;
 }
 
 .embed-dropdown-overlay {

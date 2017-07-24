@@ -469,12 +469,25 @@ h3.form-header {
 	font-size: 12px;
 }
 
-.form-product-item-detail {
+.form-product-item > .form-product-item-detail {
+	position: static;
+	float: left;
+	width: 100%;
+}
+
+.form-product-item > img + .form-product-item-detail {
 	position: static;
 	float: left;
 	width: 84%;
 	width: calc(100% - 66px);
 }
+
+/*.form-product-item-detail {
+	position: static;
+	float: left;
+	width: 84%;
+	width: calc(100% - 66px);
+}*/
 
 
 .form-product-item label {

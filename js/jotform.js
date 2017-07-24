@@ -182,6 +182,7 @@ var JotForm = {
             'control_captcha',
             'control_paypal',
             'control_stripe',
+            'control_2co',
             'control_paypalexpress',
             'control_authnet',
             'control_paypalpro',
@@ -196,6 +197,9 @@ var JotForm = {
             'control_worldpay',
             'control_firstdata',
             'control_payjunction',
+            'control_worldpayus',
+            'control_wepay',
+            'control_chargify'
         ];
 
         var sendAsHiddenField = [
@@ -217,6 +221,7 @@ var JotForm = {
             "control_square",
             "control_eway",
             "control_bluepay",
+            "control_wepay"
         ];
         var submitFormAfterEncrypt = true;
 
@@ -629,7 +634,7 @@ var JotForm = {
                         bannerWrapper.style.background = primaryBgColor;
 
                         var bannerImgLink = document.createElement('a');
-                        bannerImgLink.href = 'https://www.jotform.com/signup?utm_source=formfooter&utm_medium=banner&utm_term=' + _formID + '&utm_content=form_footer_banner&utm_campaign=form_footer_signup';
+                        bannerImgLink.href = 'https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=' + _formID + '&utm_content=form_footer_banner&utm_campaign=form_footer_signup_hp';
                         bannerImgLink.target = '_blank';
                         bannerImgLink.setText('Powered by');
                         bannerImgLink.style.lineHeight = '48px';
@@ -709,7 +714,7 @@ var JotForm = {
                         var buttonWrapper = button.parentNode;
                         var banner = document.createElement('a');
                         banner.target = '_blank';
-                        banner.href = 'https://www.jotform.com/signup?utm_source=powered_by_jotform&utm_medium=banner&utm_term=' + _formID + '&utm_content=powered_by_jotform_text&utm_campaign=powered_by_jotform_signup';
+                        banner.href = 'https://www.jotform.com/?utm_source=powered_by_jotform&utm_medium=banner&utm_term=' + _formID + '&utm_content=powered_by_jotform_text&utm_campaign=powered_by_jotform_signup_hp';
                         banner.setText('Powered by JotForm');
                         banner.style.display = 'inline-block';
                         banner.style.textDecoration = 'none';
@@ -1832,6 +1837,10 @@ var JotForm = {
                     else if (hour == 13) hour = 1;
                 }
             }
+            // prepend with zero
+            if (hour < 10 && $(hh).options[1].value.length > 1) {
+                hour = '0' + hour;
+            }
 
             $(hh).value = hour;
             $(ii).value = min;
@@ -1865,7 +1874,7 @@ var JotForm = {
      * Sets calendar to field
      * @param {Object} id
      */
-    setCalendar: function (id, startOnMonday, limits) {
+    setCalendar: function (id, startOnMonday, limits, parent) {
         try {
 
             JotForm.dateLimits[id] = limits;
@@ -1873,6 +1882,7 @@ var JotForm = {
             var calendar = Calendar.setup({
                 triggerElement: "input_" + id + "_pick",
                 dateField: "year_" + id,
+                parentElement: parent,
                 closeHandler: function () {
                     JotForm.calendarClose.apply(this, arguments);
                 },
@@ -1952,23 +1962,25 @@ var JotForm = {
                 });
             }
 
-            var openCalendar = function () {
-                var ele = this;
-                setTimeout(function () {
-                    calendar.showAtElement(ele);
-                }, 50);
+            if (!parent) { // if parent its embedded and show hide will be handled by the parent container
+                var openCalendar = function() {
+                    var ele = this;
+                    setTimeout(function() {
+                        calendar.showAtElement(ele);
+                    }, 50);
 
-            };
-            if ($('input_' + id + '_pick').hasClassName('showAutoCalendar')) {
-                var _selectors = [('#day_' + id), ('#month_' + id), ('#year_' + id), ('#lite_mode_' + id)];
-                $$(_selectors.join(',')).each(function (elem) {
-                    elem.observe('focus', openCalendar);
-                    elem.observe('click', openCalendar);
+                };
+                if ($('input_' + id + '_pick').hasClassName('showAutoCalendar')) {
+                    var _selectors = [('#day_' + id), ('#month_' + id), ('#year_' + id), ('#lite_mode_' + id)];
+                    $$(_selectors.join(',')).each(function(elem) {
+                        elem.observe('focus', openCalendar);
+                        elem.observe('click', openCalendar);
+                    });
+                }
+                $("year_" + id).observe("blur", function() {
+                    calendar.hide();
                 });
             }
-            $("year_"+id).observe("blur", function() {
-                calendar.hide();
-            });
 
         } catch (e) {
             JotForm.error(e);
@@ -2654,11 +2666,14 @@ var JotForm = {
                 //Emre: when checkboxed is checked, total count does not increase on payment forms  (79814)
 
                 var disabled = input.disabled ? !!(input.enable()) : false;
+                var value = pair.value.replace(/\{\+\}/g,'{plusSign}').replace(/\+/g, ' ').replace(/\{plusSign\}/g,'+');
 
-                if ($A(pair.value.split(',')).include(input.value)) {
-                    if(!input.checked) {
+                if (value == input.value || $A(value.split(',')).include(input.value) || $A(value.split('<br>')).include(input.value)) {
+                    if (!input.checked) {
                         if(disabled) {
-                            setTimeout(function() { input.click()});
+                            setTimeout(function() {
+                                input.click();
+                            }, 0);
                         } else {
                             input.click();
                         }
@@ -2953,6 +2968,11 @@ var JotForm = {
             }
         }
 
+        // if donation and has a source field
+        if (JotForm.donationField && element.down('[data-component="paymentDonation"][data-custom-amount-field]')) {
+            JotForm.updateDonationAmount();
+        }
+
         return elemShown;
     },
 
@@ -3031,6 +3051,13 @@ var JotForm = {
             } else {
                 element.hide();
             }
+            // if donation and has a source field
+            if (JotForm.donationField && element.down('[data-component="paymentDonation"][data-custom-amount-field]')) {
+                JotForm.updateDonationAmount(0);
+            }
+            // correct this field
+            JotForm.corrected(element);
+
             return element;
         }
 
@@ -4332,6 +4359,7 @@ var JotForm = {
          'control_bluepay',
          'control_firstdata',
          'control_payjunction',
+         'control_chargify',
         ];
         if ($('id_' + id) && $('id_' + id).readAttribute('data-type') && paymentTypes.include($('id_' + id).readAttribute('data-type'))) {
             return $('id_' + id).readAttribute('data-type').replace("control_", "");
@@ -4378,6 +4406,7 @@ var JotForm = {
                 'eway',
                 'bluepay',
                 'firstdata',
+                'chargify',
                 ].include(JotForm.calculationType(result))) return;
         } catch (e) {
             console.log(e);
@@ -5736,28 +5765,23 @@ var JotForm = {
         })
         // if donation gets its amount from a calculation widget
         if ($$('input[id*="_donation"]')[0].getAttribute('data-custom-amount-field') > 0) {
-            var calcField = $('input_' + donationField.getAttribute('data-custom-amount-field'));
+            JotForm.donationSourceField = $('input_' + donationField.getAttribute('data-custom-amount-field'));
             // if calculation widget does not exist
-            if (!calcField) {
+            if (!JotForm.donationSourceField) {
                 $$('input[id*="_donation"]')[0].removeAttribute('readonly');
                 return;
             }
-
-            var getVal = function () {
-                var val = calcField.value;
-                if (typeof val !== 'number') {
-                    val = val.replace(/[^0-9\.]/gi, "");
-                }
-                return !isNaN(val) && val > 0 ? val : 0;
-            }
             // get value from calculation widget
             setTimeout(function () {
-                donationField.value = getVal();
+                JotForm.updateDonationAmount();
                 donationField.triggerEvent('keyup');
             }, 1000);
             // observe calc widget value changes
-            calcField.observe('change', function () {
-                donationField.value = JotForm.paymentTotal = getVal();
+            JotForm.donationSourceField.observe('change', function () {
+                // do not update if donation field is hidden by condition
+                // it will be updated when shown again (JotForm.showField)
+                if (donationField.up('.form-line.form-field-hidden') || donationField.up('ul.form-field-hidden')) { return; }
+                JotForm.updateDonationAmount();
             });
         // if donation field requires a minimum amount
         } else if (donationField.hasAttribute('data-min-amount')) {
@@ -5773,7 +5797,28 @@ var JotForm = {
                 }
             };
         }
+    },
 
+    /**
+     * Updates donation with a specified amount or amount taken from source field (calculation widget)
+     * @param amount
+     */
+    updateDonationAmount: function (amount) {
+        // source field is missing
+        if (!JotForm.donationSourceField) { return; }
+        // amount is specified
+        if (typeof amount !== 'undefined') {
+            JotForm.donationField.value = JotForm.paymentTotal = amount;
+            return;
+        }
+        var getVal = function () {
+            var val = JotForm.donationSourceField.value;
+            if (typeof val !== 'number') {
+                val = val.replace(/[^0-9\.]/gi, "");
+            }
+            return !isNaN(val) && val > 0 ? val : 0;
+        }
+        JotForm.donationField.value = JotForm.paymentTotal = getVal();
     },
 
     /**
@@ -6451,9 +6496,9 @@ var JotForm = {
         if ($('creditCardTable')) {
             // if total is zero and a valid coupon has been entered
             if (products > 0 && this.paymentTotal === 0 && discounted) {
-                $('creditCardTable').hide();
+                JotForm.setCreditCardVisibility(false);                
             } else if ($$('input[id*="paymentType_credit"]')[0].checked) {
-                $('creditCardTable').show();
+                JotForm.setCreditCardVisibility(true);
             }
         }
         // update payment subtotal
@@ -6478,6 +6523,14 @@ var JotForm = {
         }
     },
     prices: {},
+
+    setCreditCardVisibility: function(show) {
+        if (show) {
+            $('creditCardTable').show();
+        } else {
+            $('creditCardTable').hide();
+        }
+    },
     /**
      * Sets the events for dynamic total calculation
      * @param {Object} prices
@@ -6712,7 +6765,7 @@ var JotForm = {
         }
         cb.enable();
         ci.disable();
-        cb.innerHTML = this.paymentTexts.couponChange;
+        cb.innerHTML = this.paymentTexts.couponChange || 'Change';
         // When 'Change' button is clicked
         cb.observe('click', function () {
             // Clear hidden coupon input value
@@ -7707,12 +7760,14 @@ var JotForm = {
         if(type !== 'control_radio' && type !== 'control_dropdown') return;
 
         prev.observe("change", function() {
+            if (!JotForm.isVisible(prev)) { return; }
             var nextButton = $("cid_"+id).down('.form-pagebreak-next')
             if(nextButton && nextButton.triggerEvent) {
                 nextButton.focus();
                 nextButton.setStyle({'fontWeight':'bold'});
                 setTimeout(function() {
                     nextButton.setStyle({'fontWeight':'inherit'})
+                    nextButton.triggerEvent('mousedown');
                     nextButton.triggerEvent('click');
                 }, 800);
             }
@@ -8166,11 +8221,11 @@ var JotForm = {
             $$('.paymentTypeRadios').each(function (radio) {
                 radio.observe('click', function () {
                     if (radio.checked && radio.value === "express") {
-                        $('creditCardTable').hide();
+                        JotForm.setCreditCardVisibility(false);
                     }
                     // If credit is selected and payment total is greater than zero or if there is no discount coupon
                     if (radio.checked && radio.value === "credit" && ( JotForm.paymentTotal > 0 || Object.keys(JotForm.discounts).length === 0 )) {
-                        $('creditCardTable').show();
+                        JotForm.setCreditCardVisibility(true);
                     }
                     JotForm.corrected($$('.paymentTypeRadios')[0]);
                     // toggle checkout buttons
@@ -8408,7 +8463,9 @@ var JotForm = {
             if (JotForm.payment && input.up('.form-line')) { //b#486482 only run on first payment input as that will iterate over all of the others
                 var dataType = input.up('.form-line').getAttribute('data-type');
                 if (dataType == "control_" + JotForm.payment) {
-                    if (input.up('.form-line').select(input.tagName + '[class*="validate"]').first() != input) {
+                    var container = JotForm.getContainer(input);
+                    var isFirstProduct = container.select('input[class*="validate"],select[class*="validate"]').first() == input;
+                    if (!input.name.match('cc_') && !isFirstProduct) {
                         return;
                     }
                 }
@@ -8722,7 +8779,7 @@ var JotForm = {
                         });
                     }
 
-                    if (JotForm.autoFillDeployed) {
+                    if (JotForm.autoFillDeployed && !JotForm.payment) {
                         if (typeof window.localStorage !== 'undefined') {
                             var formID = $$('form').first().readAttribute('id') + $$('form').first().readAttribute('name');
                             AutoFill.getInstance(formID).stopSavingData();
@@ -9361,8 +9418,11 @@ var JotForm = {
                                 return e.getValue() == 0 ;
                             }
                             // if credit card fields
-                            if (e.name && e.name.match(/cc_/)) {
-                                return JotForm.paymentTotal == 0;
+                            // skip checking paymenttotal for card form since it will be in a different card
+                            if (window.FORM_MODE !== 'cardform') {
+                                if (e.name && e.name.match(/cc_/)) {
+                                    return JotForm.paymentTotal == 0;
+                                }
                             }
 
                             // If this is a product quantity option
@@ -10440,6 +10500,120 @@ var JotForm = {
           }
         }
       });
+    },
+
+    setMatrixLayout: function(id) {
+        var matrix = document.getElementById("matrix_" + id);
+
+        if ($(matrix).select('.forDesktop').length > 0) {
+            var headerItems = matrix.getElementsByClassName('jfMatrixHeader-item');
+            var tableCells = matrix.getElementsByClassName('jfMatrixTable-cell');
+
+            for (var i = 1; i < headerItems.length; i++) {
+                var cell = tableCells[i].getElementsByTagName('div')[0];
+                var cellWidth = headerItems[i].getElementsByTagName('div')[0].getLayout().get('padding-box-width');
+                cell.style.width = cellWidth;
+            }
+
+            headerItems[0].getElementsByTagName('div')[0].style.width = tableCells[0].getElementsByTagName('div')[0].getLayout().get('padding-box-width');
+
+            var matrixTable = matrix.getElementsByClassName('jfMatrixTable')[0];
+            var matrixHeader = matrix.getElementsByClassName('jfMatrixHeader')[0];
+
+            matrixTable.addEventListener('scroll', function () {
+              matrixHeader.scrollLeft = matrixTable.scrollLeft;
+            });
+
+            // if (matrix.querySelector('.jfMatrixTable-row').getLayout().get('padding-box-width') > matrixTable.getLayout().get('padding-box-width')) {
+            //   matrixHeader.style('margin-right', this.getScrollbarWidth());
+            // }
+        }
+
+        if ($(matrix).select('.forMobile').length > 0) {
+
+            $(matrix).select('.jfMatrixProgress-button.forNext')[0].observe("click", function() {
+                var activeQuestionOrder = parseInt($(matrix).select('.jfMatrix-question.isActive')[0].readAttribute('data-order'));
+                var questions =  $(matrix).select('.jfMatrix-question');
+            
+                questions.each(function(q) {
+                    q.removeClassName('isActive');
+                    if (q.readAttribute('data-order') == activeQuestionOrder + 1) {
+                        $(q).addClassName('isActive');
+                    }
+                });
+
+                var choices = $(matrix).select('.jfMatrix-choiceWrapper');
+                choices.each(function(c) {
+                    c.removeClassName('isActive');
+                    if (c.readAttribute('data-order') == activeQuestionOrder + 1) {
+                        $(c).addClassName('isActive');
+                    }
+                });
+
+                activeQuestionOrder = activeQuestionOrder + 1;
+
+                if (activeQuestionOrder + 1 == questions.length) {
+                    $(this).disable();
+                }
+
+                $(matrix).select('.jfMatrixProgress-text span')[0].innerHTML = activeQuestionOrder + 1;
+
+                $(matrix).select('.jfMatrix-progress .forPrev')[0].enable();
+            });
+
+            $(matrix).select('.jfMatrixProgress-button.forPrev')[0].observe("click", function() {
+                var activeQuestionOrder = parseInt($(matrix).select('.jfMatrix-question.isActive')[0].readAttribute('data-order'));
+                
+                var questions =  $(matrix).select('.jfMatrix-question');
+                questions.each(function(q) {
+                    q.removeClassName('isActive');
+                    if (q.readAttribute('data-order') == activeQuestionOrder - 1) {
+                        $(q).addClassName('isActive');
+                    }
+                });
+
+                var choices = $(matrix).select('.jfMatrix-choiceWrapper');
+                choices.each(function(c) {
+                    c.removeClassName('isActive');
+                    if (c.readAttribute('data-order') == activeQuestionOrder - 1 ) {
+                        $(c).addClassName('isActive');
+                    }
+                });
+
+                // activeQuestionOrder = activeQuestionOrder - 1;
+
+                if (activeQuestionOrder - 1 == 0) {
+                    $(this).disable();
+                }
+
+                $(matrix).select('.jfMatrixProgress-text span')[0].innerHTML = activeQuestionOrder;
+
+                $(matrix).select('.jfMatrix-progress .forNext')[0].enable()
+            });
+        }
+    },
+
+    getScrollbarWidth: function(matrix) {
+        var outer = document.createElement("div");
+        outer.style.visibility = "hidden";
+        outer.style.width = "100px";
+        outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+
+        matrix.appendChild(outer);
+
+        var widthNoScroll = outer.offsetWidth;
+        // force scrollbars
+        outer.style.overflow = "scroll";
+
+        // add innerdiv
+        var inner = document.createElement("div");
+        inner.style.width = "100%";
+        outer.appendChild(inner);        
+        var widthWithScroll = inner.offsetWidth;
+
+        // remove divs
+        outer.parentNode.removeChild(outer);
+        return widthNoScroll - widthWithScroll;
     }
 };
 function getQuerystring(key, default_) {

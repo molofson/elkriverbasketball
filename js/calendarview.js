@@ -310,7 +310,9 @@ Calendar.setup = function(params)
         if(calendar.dateField.id) {
           var id = calendar.dateField.id.replace("year_", "");
           if(!$('month_' + id)) return new Date();
-          
+          if(id) {
+            calendar.id = id;
+          }
           var month = $('month_' + id) ? parseInt($('month_' + id).value)-1 : -1;
           var day = $('day_' + id).value;
           var year = $('year_' + id).value;
@@ -361,6 +363,7 @@ Calendar.prototype = {
   // Callbacks
   selectHandler: null,
   closeHandler: null,
+  id: null,
 
   // Configuration
   minYear: 1900,
@@ -496,7 +499,9 @@ Calendar.prototype = {
     } else {
       date.setDate(-(date.getDay()) + 1);
     }
-
+    if(this.id) {
+      this.container.setAttribute('id', 'calendar_' + this.id);
+    }
 
     // Fill in the days of the month
     Element.getElementsBySelector(this.container, 'tbody tr').each(
@@ -879,7 +884,7 @@ Calendar.prototype = {
   // Shows the Calendar
   show: function()
   {
-    this.create();
+    // this.create();
     this.container.show();
     if (this.isPopup) {
       window._popupCalendar = this;
